@@ -1,21 +1,19 @@
-from logger_config import setup_logger
-from controllers.gallery_controller import GalleryController
-
-logger = setup_logger()
+from utils.database import init_db, SessionLocal
+from repositories.image_repository import ImageRepository
+from services.image_service import ImageService
 
 def main():
-    controller = GalleryController()
-    
-    try:
-        logger.info("Image loading.")
-        image = controller.upload("cat.jpg", "examples/cat.jpg", "cats")
-        logger.info(f"Image uploaded: {image.to_dict()}")
+    init_db()
+    db = SessionLocal()
 
-        images = controller.get_all()
-        logger.info(f"All images: {images}")
+    image_repo = ImageRepository(db)
+    image_service = ImageService(image_repo)
 
-    except Exception as e:
-        logger.exception("Error executing main logic")
+    new_image = image_service.upload_image("pic1.png", "/images/pic1.png", 1)
+    print("Saved:", new_image.filename)
+
+    retrieved = image_service.fetch_image(new_image.id)
+    print("Retrieved:", retrieved.filename)
 
 if __name__ == "__main__":
     main()
