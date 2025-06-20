@@ -4,8 +4,8 @@ from services.image_service import ImageService
 
 def main():
     init_db()
+    
     db = SessionLocal()
-
     image_repo = ImageRepository(db)
     image_service = ImageService(image_repo)
 
