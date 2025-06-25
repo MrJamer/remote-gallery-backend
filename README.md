@@ -41,12 +41,13 @@ uvicorn main:app --reload
 ```
 
 ### 5. Документація API:
-
+```
 Swagger UI: http://localhost:8000/docs
 ReDoc: http://localhost:8000/redoc
+```
 
 ### 5. Структура проєкту
-
+```
 ImageGalleryPractice2/
 │
 ├── controllers/              # API маршрути
@@ -59,3 +60,4 @@ ImageGalleryPractice2/
 ├── main.py                   # Точка входу
 ├── requirements.txt          # Залежності
 └── README.md                 # Документація
+```
