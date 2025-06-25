@@ -46,7 +46,7 @@ Swagger UI: http://localhost:8000/docs
 ReDoc: http://localhost:8000/redoc
 ```
 
-### 5. Структура проєкту
+## Структура проєкту
 ```
 ImageGalleryPractice2/
 │
